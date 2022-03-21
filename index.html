@@ -128,7 +128,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -169,7 +169,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.davidwang.org/2022/03/21/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://blog.davidwang.org/2022/03/21/%E8%AE%B0%E4%B8%80%E6%AC%A1-arch-%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -187,7 +187,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/21/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+          <a href="/2022/03/21/%E8%AE%B0%E4%B8%80%E6%AC%A1-arch-%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0/" class="post-title-link" itemprop="url">记一次 Arch 内核更新</a>
         </h2>
 
         <div class="post-meta-container">
@@ -198,7 +198,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-03-22 01:37:26" itemprop="dateCreated datePublished" datetime="2022-03-22T01:37:26+08:00">2022-03-22</time>
+      <time title="创建时间：2022-03-22 01:37:46" itemprop="dateCreated datePublished" datetime="2022-03-22T01:37:46+08:00">2022-03-22</time>
     </span>
 
   
@@ -211,19 +211,38 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+          <p>今天尝试着把 Arch 的内核改成了 mainline 版本，但是开机时卡住了，究其原因，是显卡驱动的问题。</p>
+<h2 id="切换到-Mainline-内核"><a href="#切换到-Mainline-内核" class="headerlink" title="切换到 Mainline 内核"></a>切换到 Mainline 内核</h2><p>Mainline 内核要比 Arch 默认采用的 Stable 内核更新些，但是 Arch 的官方仓库并不提供现成的二进制文件。</p>
+<p>要切换到 Mainline，我们有两种选择：</p>
+<ol>
+<li>从 AUR 下载源码并编译</li>
+<li>添加第三方软件库</li>
+</ol>
+<p>第一种方式其实就是从 AUR 获取 PKGBUILD 文件，然后从 kernel.org 获取源码并自行编译，这样一来，大量的时间就耗费在了下载和编译上，如果没有特别的需求的话，笔者不建议选择这个方式。</p>
+<p>第二种方式就简单很多了，AUR 上 <code>linux-mainline</code> 软件包的维护者为我们提供了现成的二进制文件，我们只需要将他的仓库添加到 <code>pacman</code> 的配置文件中即可。<code>archlinuxcn</code> 仓库也提供了这个软件包，笔者也更推荐后者（原因见下）。</p>
+<p>在 <code>/etc/pacman.conf</code> 的末尾添加以下内容</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[miffe]</span><br><span class="line">Server = https://arch.miffe.org/$arch/</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>然后添加该第三方仓库的密钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman-key --recv-keys 313F5ABD</span><br><span class="line">pacman-key --lsign-key 313F5ABD</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>最后更新仓库并安装二进制软件包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syu</span><br><span class="line">sudo pacman -S linux-mainline linux-mainline-headers</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>别忘了重建 Grub 引导项目</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h2 id="进不了桌面环境了"><a href="#进不了桌面环境了" class="headerlink" title="进不了桌面环境了"></a>进不了桌面环境了</h2><p>安装完内核后，重启，发现开机卡在了 <code>/dev/nvme0p3: clean blocks</code> 上。但此时系统是正常启动了的，按下 <code>ctrl+alt+F2</code> 可进入新的 TTY。</p>
+<p>在查了一些资料后，笔者发现原来在 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/NVIDIA_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E5%AE%9A%E5%88%B6%E5%86%85%E6%A0%B8">Arch Wiki</a> 中对于这个问题早有解答。</p>
+<blockquote>
+<p>如果你使用的是一个定制的内核，可以通过 DKMS 来自动编译 Nvidia 内核模块。<br>安装 nvidia-dkms 软件包。 Nvidia 内核模块会在每次 Nvidia 或者内核更新的时候自动重新编译，这个功能由 DKMS pacman钩子实现。</p>
+</blockquote>
+<p>简单来讲，就是 Nvidia 的内核模块和当前内核版本不匹配的过。理论上，每次更新内核时 <code>nvidia-dkms</code> 会自动帮我们更新内核模块，但由于种种原因，这次更新时这个玩意并没有生效……所以我们重新安装它来生成对应的内核模块。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S nvidia-dkms</span><br></pre></td></tr></table></figure>
+
+<p>重启后，即可正常进入桌面环境。</p>
+<h2 id="卸载旧内核"><a href="#卸载旧内核" class="headerlink" title="卸载旧内核"></a>卸载旧内核</h2><p>在卸载旧内核时，笔者又遇到了问题：<code>nvidia</code> 包依赖于 <code>linux</code>，这就导致无法把稳定版内核删掉……虽然可以通过保留稳定版内核的方式暂时解决这个问题，不过如果稳定版内核更新了，nvidia-dkms 是否会重新生成内核模块导致无法再启动主线内核呢？笔者尚不清楚这个问题的答案，也决定不冒这个险。</p>
+<p>经过一通查找，笔者发现在 <code>archlinuxcn</code> 第三方仓库中有 <code>nvidia-mainline</code> 这个软件包是依赖于 <code>linux-mainline</code> 的，解决了无法删除稳定版内核的问题。而且该仓库中也提供 <code>linux-mainline</code> 包，笔者就将之前的 <code>miffe</code> 源删除了，并替换成了这个，具体的导入过程可参考<a target="_blank" rel="noopener" href="https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/">这里</a></p>
 
       
     </div>

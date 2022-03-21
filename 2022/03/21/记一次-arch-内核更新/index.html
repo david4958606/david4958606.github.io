@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple_touch_icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari_pinned_tab.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.davidwang.org","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="今天尝试着把 Arch 的内核改成了 mainline 版本，但是开机时卡住了，究其原因，是显卡驱动的问题。 切换到 Mainline 内核Mainline 内核要比 Arch 默认采用的 Stable 内核更新些，但是 Arch 的官方仓库并不提供现成的二进制文件。 要切换到 Mainline，我们有两种选择：  从 AUR 下载源码并编译 添加第三方软件库  第一种方式其实就是从 AUR 获取">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一次 Arch 内核更新">
+<meta property="og:url" content="https://blog.davidwang.org/2022/03/21/%E8%AE%B0%E4%B8%80%E6%AC%A1-arch-%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0/">
+<meta property="og:site_name" content="David 自留地">
+<meta property="og:description" content="今天尝试着把 Arch 的内核改成了 mainline 版本，但是开机时卡住了，究其原因，是显卡驱动的问题。 切换到 Mainline 内核Mainline 内核要比 Arch 默认采用的 Stable 内核更新些，但是 Arch 的官方仓库并不提供现成的二进制文件。 要切换到 Mainline，我们有两种选择：  从 AUR 下载源码并编译 添加第三方软件库  第一种方式其实就是从 AUR 获取">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-21T17:37:46.000Z">
+<meta property="article:modified_time" content="2022-03-21T17:37:46.000Z">
+<meta property="article:author" content="David Wang">
+<meta property="article:tag" content="Arch">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.davidwang.org/2022/03/21/%E8%AE%B0%E4%B8%80%E6%AC%A1-arch-%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.davidwang.org/2022/03/21/%E8%AE%B0%E4%B8%80%E6%AC%A1-arch-%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0/","path":"2022/03/21/记一次-arch-内核更新/","title":"记一次 Arch 内核更新"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>记一次 Arch 内核更新 | David 自留地</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">David 自留地</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术宅拯救世界</p>
+      <img class="custom-logo-image" src="/images/mstile-150x150.png" alt="David 自留地">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E5%88%B0-Mainline-%E5%86%85%E6%A0%B8"><span class="nav-number">1.</span> <span class="nav-text">切换到 Mainline 内核</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E4%B8%8D%E4%BA%86%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E4%BA%86"><span class="nav-number">2.</span> <span class="nav-text">进不了桌面环境了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD%E6%97%A7%E5%86%85%E6%A0%B8"><span class="nav-number">3.</span> <span class="nav-text">卸载旧内核</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">David Wang</p>
+  <div class="site-description" itemprop="description">编程技术随笔</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.davidwang.org/2022/03/21/%E8%AE%B0%E4%B8%80%E6%AC%A1-arch-%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="David Wang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="David 自留地">
+      <meta itemprop="description" content="编程技术随笔">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="记一次 Arch 内核更新 | David 自留地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          记一次 Arch 内核更新
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-22 01:37:46" itemprop="dateCreated datePublished" datetime="2022-03-22T01:37:46+08:00">2022-03-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>今天尝试着把 Arch 的内核改成了 mainline 版本，但是开机时卡住了，究其原因，是显卡驱动的问题。</p>
+<h2 id="切换到-Mainline-内核"><a href="#切换到-Mainline-内核" class="headerlink" title="切换到 Mainline 内核"></a>切换到 Mainline 内核</h2><p>Mainline 内核要比 Arch 默认采用的 Stable 内核更新些，但是 Arch 的官方仓库并不提供现成的二进制文件。</p>
+<p>要切换到 Mainline，我们有两种选择：</p>
+<ol>
+<li>从 AUR 下载源码并编译</li>
+<li>添加第三方软件库</li>
+</ol>
+<p>第一种方式其实就是从 AUR 获取 PKGBUILD 文件，然后从 kernel.org 获取源码并自行编译，这样一来，大量的时间就耗费在了下载和编译上，如果没有特别的需求的话，笔者不建议选择这个方式。</p>
+<p>第二种方式就简单很多了，AUR 上 <code>linux-mainline</code> 软件包的维护者为我们提供了现成的二进制文件，我们只需要将他的仓库添加到 <code>pacman</code> 的配置文件中即可。<code>archlinuxcn</code> 仓库也提供了这个软件包，笔者也更推荐后者（原因见下）。</p>
+<p>在 <code>/etc/pacman.conf</code> 的末尾添加以下内容</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[miffe]</span><br><span class="line">Server = https://arch.miffe.org/$arch/</span><br></pre></td></tr></table></figure>
+
+<p>然后添加该第三方仓库的密钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman-key --recv-keys 313F5ABD</span><br><span class="line">pacman-key --lsign-key 313F5ABD</span><br></pre></td></tr></table></figure>
+
+<p>最后更新仓库并安装二进制软件包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syu</span><br><span class="line">sudo pacman -S linux-mainline linux-mainline-headers</span><br></pre></td></tr></table></figure>
+
+<p>别忘了重建 Grub 引导项目</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+
+<h2 id="进不了桌面环境了"><a href="#进不了桌面环境了" class="headerlink" title="进不了桌面环境了"></a>进不了桌面环境了</h2><p>安装完内核后，重启，发现开机卡在了 <code>/dev/nvme0p3: clean blocks</code> 上。但此时系统是正常启动了的，按下 <code>ctrl+alt+F2</code> 可进入新的 TTY。</p>
+<p>在查了一些资料后，笔者发现原来在 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/NVIDIA_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E5%AE%9A%E5%88%B6%E5%86%85%E6%A0%B8">Arch Wiki</a> 中对于这个问题早有解答。</p>
+<blockquote>
+<p>如果你使用的是一个定制的内核，可以通过 DKMS 来自动编译 Nvidia 内核模块。<br>安装 nvidia-dkms 软件包。 Nvidia 内核模块会在每次 Nvidia 或者内核更新的时候自动重新编译，这个功能由 DKMS pacman钩子实现。</p>
+</blockquote>
+<p>简单来讲，就是 Nvidia 的内核模块和当前内核版本不匹配的过。理论上，每次更新内核时 <code>nvidia-dkms</code> 会自动帮我们更新内核模块，但由于种种原因，这次更新时这个玩意并没有生效……所以我们重新安装它来生成对应的内核模块。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S nvidia-dkms</span><br></pre></td></tr></table></figure>
+
+<p>重启后，即可正常进入桌面环境。</p>
+<h2 id="卸载旧内核"><a href="#卸载旧内核" class="headerlink" title="卸载旧内核"></a>卸载旧内核</h2><p>在卸载旧内核时，笔者又遇到了问题：<code>nvidia</code> 包依赖于 <code>linux</code>，这就导致无法把稳定版内核删掉……虽然可以通过保留稳定版内核的方式暂时解决这个问题，不过如果稳定版内核更新了，nvidia-dkms 是否会重新生成内核模块导致无法再启动主线内核呢？笔者尚不清楚这个问题的答案，也决定不冒这个险。</p>
+<p>经过一通查找，笔者发现在 <code>archlinuxcn</code> 第三方仓库中有 <code>nvidia-mainline</code> 这个软件包是依赖于 <code>linux-mainline</code> 的，解决了无法删除稳定版内核的问题。而且该仓库中也提供 <code>linux-mainline</code> 包，笔者就将之前的 <code>miffe</code> 源删除了，并替换成了这个，具体的导入过程可参考<a target="_blank" rel="noopener" href="https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/">这里</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>David Wang
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://blog.davidwang.org/2022/03/21/%E8%AE%B0%E4%B8%80%E6%AC%A1-arch-%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0/" title="记一次 Arch 内核更新">https://blog.davidwang.org/2022/03/21/记一次-arch-内核更新/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/arch/" rel="tag"># Arch</a>
+              <a href="/tags/linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/03/20/%E9%87%8D%E6%9E%84%E5%8D%9A%E5%AE%A2/" rel="prev" title="重构博客">
+                  <i class="fa fa-chevron-left"></i> 重构博客
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">David Wang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
