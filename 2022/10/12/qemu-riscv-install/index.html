@@ -21,28 +21,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.davidwang.org","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="笔者在几乎一个月前申请了 GitHub Copilot 这个好用的服务，现在已经可以用了，这个服务的好处是可以自动帮你补全很多代码，你只要为你的函数起一个名字，就可以自动补全了。 比如下面的这段 Python 代码的函数主体部分就是 Copilot 补全的。 12def calcDaysBetwwenDates(startDate, endDate):    return (endDate - s">
+    <meta name="description" content="本文比较详细的描述了如何在 Archlinux 下安装 QEMU 并搭建 RISC-V 开发环境">
 <meta property="og:type" content="article">
-<meta property="og:title" content="可以用 GitHub Copilot 了">
-<meta property="og:url" content="https://blog.davidwang.org/2022/03/28/%E5%8F%AF%E4%BB%A5%E7%94%A8-github-copilot-%E4%BA%86/">
+<meta property="og:title" content="使用 QEMU 搭建 RISC-v 开发环境">
+<meta property="og:url" content="https://blog.davidwang.org/2022/10/12/qemu-riscv-install/">
 <meta property="og:site_name" content="David 自留地">
-<meta property="og:description" content="笔者在几乎一个月前申请了 GitHub Copilot 这个好用的服务，现在已经可以用了，这个服务的好处是可以自动帮你补全很多代码，你只要为你的函数起一个名字，就可以自动补全了。 比如下面的这段 Python 代码的函数主体部分就是 Copilot 补全的。 12def calcDaysBetwwenDates(startDate, endDate):    return (endDate - s">
+<meta property="og:description" content="本文比较详细的描述了如何在 Archlinux 下安装 QEMU 并搭建 RISC-V 开发环境">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-03-28T08:15:32.000Z">
-<meta property="article:modified_time" content="2022-03-28T08:15:32.000Z">
+<meta property="og:image" content="https://blog.davidwang.org/2022/10/12/qemu-riscv-install/uname.png">
+<meta property="og:image" content="https://blog.davidwang.org/2022/10/12/qemu-riscv-install/neofetch.png">
+<meta property="article:published_time" content="2022-10-12T09:42:51.000Z">
+<meta property="article:modified_time" content="2022-10-12T09:42:51.000Z">
 <meta property="article:author" content="David Wang">
-<meta property="article:tag" content="日志">
+<meta property="article:tag" content="riscv">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.davidwang.org/2022/10/12/qemu-riscv-install/uname.png">
 
 
-<link rel="canonical" href="https://blog.davidwang.org/2022/03/28/%E5%8F%AF%E4%BB%A5%E7%94%A8-github-copilot-%E4%BA%86/">
+<link rel="canonical" href="https://blog.davidwang.org/2022/10/12/qemu-riscv-install/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.davidwang.org/2022/03/28/%E5%8F%AF%E4%BB%A5%E7%94%A8-github-copilot-%E4%BA%86/","path":"2022/03/28/可以用-github-copilot-了/","title":"可以用 GitHub Copilot 了"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.davidwang.org/2022/10/12/qemu-riscv-install/","path":"2022/10/12/qemu-riscv-install/","title":"使用 QEMU 搭建 RISC-v 开发环境"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>可以用 GitHub Copilot 了 | David 自留地</title>
+<title>使用 QEMU 搭建 RISC-v 开发环境 | David 自留地</title>
   
 
 
@@ -106,7 +109,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -119,6 +122,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-QEMU"><span class="nav-number">1.</span> <span class="nav-text">安装 QEMU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-RISC-V"><span class="nav-number">2.</span> <span class="nav-text">安装 RISC-V</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-RISC-V-%E9%95%9C%E5%83%8F"><span class="nav-number">2.1.</span> <span class="nav-text">获取 RISC-V 镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-OpenSBI-%E5%92%8C-U-Boot-%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%87%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">获取 OpenSBI 和 U-Boot 二进制文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%A4%87%E4%BB%BD%E9%95%9C%E5%83%8F"><span class="nav-number">2.3.</span> <span class="nav-text">创建备份镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">2.4.</span> <span class="nav-text">启动虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-neofetch"><span class="nav-number">2.5.</span> <span class="nav-text">安装 neofetch</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -198,7 +202,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.davidwang.org/2022/03/28/%E5%8F%AF%E4%BB%A5%E7%94%A8-github-copilot-%E4%BA%86/">
+    <link itemprop="mainEntityOfPage" href="https://blog.davidwang.org/2022/10/12/qemu-riscv-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -211,12 +215,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="可以用 GitHub Copilot 了 | David 自留地">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="使用 QEMU 搭建 RISC-v 开发环境 | David 自留地">
+      <meta itemprop="description" content="本文比较详细的描述了如何在 Archlinux 下安装 QEMU 并搭建 RISC-V 开发环境">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          可以用 GitHub Copilot 了
+          使用 QEMU 搭建 RISC-v 开发环境
         </h1>
 
         <div class="post-meta-container">
@@ -227,12 +231,13 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-03-28 16:15:32" itemprop="dateCreated datePublished" datetime="2022-03-28T16:15:32+08:00">2022-03-28</time>
+      <time title="创建时间：2022-10-12 17:42:51" itemprop="dateCreated datePublished" datetime="2022-10-12T17:42:51+08:00">2022-10-12</time>
     </span>
 
   
 </div>
 
+            <div class="post-description">本文比较详细的描述了如何在 Archlinux 下安装 QEMU 并搭建 RISC-V 开发环境</div>
         </div>
       </header>
 
@@ -240,9 +245,31 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>笔者在几乎一个月前申请了 GitHub Copilot 这个好用的服务，现在已经可以用了，这个服务的好处是可以自动帮你补全很多代码，你只要为你的函数起一个名字，就可以自动补全了。</p>
-<p>比如下面的这段 Python 代码的函数主体部分就是 Copilot 补全的。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">calcDaysBetwwenDates</span>(<span class="params">startDate, endDate</span>):</span><br><span class="line">    <span class="keyword">return</span> (endDate - startDate).days</span><br></pre></td></tr></table></figure>
+        <p>RISC-V 是近年来新兴起的一种开源的精简指令集处理器架构，QEMU 则是一款开源的计算机模拟器，可以帮助我们快速的搭建一个 RISC-V 的开发环境。</p>
+<h2 id="安装-QEMU"><a href="#安装-QEMU" class="headerlink" title="安装 QEMU"></a>安装 QEMU</h2><p>参考 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/QEMU">Archlinux Wiki</a>，我们需要安装 <code>qemu-emulators-full</code> 和 <code>qemu-base</code> 软件包。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S qemu-base qemu-emulators-full</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-RISC-V"><a href="#安装-RISC-V" class="headerlink" title="安装 RISC-V"></a>安装 RISC-V</h2><h3 id="获取-RISC-V-镜像"><a href="#获取-RISC-V-镜像" class="headerlink" title="获取 RISC-V 镜像"></a>获取 RISC-V 镜像</h3><p>Debian 团队和 Ubuntu 团队都提供了对应系统的 RISC-V 镜像，笔者这里采用了 Debian 的镜像。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir debian-rv64 &amp;&amp; cd debian-rv64</span><br><span class="line">wget &quot;https://gitlab.com/api/v4/projects/giomasce%2Fdqib/jobs/artifacts/master/download?job=convert_riscv64-virt&quot; -O debian-rv64.zip</span><br><span class="line">unzip debian-rv64.zip &amp;&amp; rm debian-rv64.zip</span><br><span class="line">cd artifacts</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取-OpenSBI-和-U-Boot-二进制文件"><a href="#获取-OpenSBI-和-U-Boot-二进制文件" class="headerlink" title="获取 OpenSBI 和 U-Boot 二进制文件"></a>获取 OpenSBI 和 U-Boot 二进制文件</h3><p>OpenSBI 用于将 RISC-V 平台在 M-Mode 和 S-Mode 中切换，对于 RISC-V 系统的具体的启动模式和流程本文不再赘述，读者可参考 <a target="_blank" rel="noopener" href="https://crvf2019.github.io/pdf/43.pdf">An Introduction to RISC-V Boot flow: Overview, Blob vs Blobfree standards</a> 这篇文章。OpenSBI 已经包含在了 <code>qemu-emulators-full</code> 软件包中，位于 <code>/usr/share/qemu/opensbi-riscv64-generic-fw_dynamic.bin</code>。</p>
+<p>U-Boot 则是一款开源的启动引导器（Bootloader），可用于多种系统架构的引导，AUR 中已经提供了相关的二进制包 <code>u-boot-qemu-bin</code>，安装完成后，可以在 <code>/usr/share/u-boot-qemu-bin/qemu-riscv64_smode</code> 中找到 <code>uboot.elf</code>，将该文件拷贝到当前目录中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> /usr/share/u-boot-qemu-bin/qemu-riscv64_smode/uboot.elf .</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建备份镜像"><a href="#创建备份镜像" class="headerlink" title="创建备份镜像"></a>创建备份镜像</h3><p>笔者建议给当前的系统创建一个 Overlay 镜像以便于在系统出错时快速恢复初始状态。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qemu-img create -o backing_file=image.qcow2,backing_fmt=qcow2 -f qcow2 overlay.qcow2</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动虚拟机"><a href="#启动虚拟机" class="headerlink" title="启动虚拟机"></a>启动虚拟机</h3><p>可以通过下列命令启动虚拟机，建议保存为 <code>.sh</code> 文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-riscv64 \</span><br><span class="line">    -machine virt \</span><br><span class="line">    -cpu rv64 \</span><br><span class="line">    -m 8G \</span><br><span class="line">    -device virtio-blk-device,drive=hd \</span><br><span class="line">    -drive file=image.qcow2,<span class="keyword">if</span>=none,<span class="built_in">id</span>=hd \</span><br><span class="line">    -device virtio-net-device,netdev=net \</span><br><span class="line">    -netdev user,<span class="built_in">id</span>=net,hostfwd=tcp::62222-:22 \</span><br><span class="line">    -bios /usr/share/qemu/opensbi-riscv64-generic-fw_dynamic.bin \</span><br><span class="line">    -kernel ./uboot.elf \</span><br><span class="line">    -object rng-random,filename=/dev/urandom,<span class="built_in">id</span>=rng \</span><br><span class="line">    -device virtio-rng-device,rng=rng \</span><br><span class="line">    -append <span class="string">&quot;root=LABEL=rootfs console=ttyS0&quot;</span> \</span><br><span class="line">    -nographic</span><br></pre></td></tr></table></figure>
+
+<p>这里我们给虚拟机分配了 8G 内存，并转发了 22 端口到宿主机的 62222 端口以便于 SSH 访问。这个系统镜像可以使用 root&#x2F;root 或者 debian&#x2F;debian 登录。</p>
+<p>至此，RISC-V 的开发环境便搭建完成了。</p>
+<img src="/2022/10/12/qemu-riscv-install/uname.png" class="" title="查看内核版本">
+
+<h3 id="安装-neofetch"><a href="#安装-neofetch" class="headerlink" title="安装 neofetch"></a>安装 neofetch</h3><p>apt 安装即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install neofetch</span><br></pre></td></tr></table></figure>
+
+<img src="/2022/10/12/qemu-riscv-install/neofetch.png" class="" title="neofetch 界面">
 
     </div>
 
@@ -260,7 +287,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://blog.davidwang.org/2022/03/28/%E5%8F%AF%E4%BB%A5%E7%94%A8-github-copilot-%E4%BA%86/" title="可以用 GitHub Copilot 了">https://blog.davidwang.org/2022/03/28/可以用-github-copilot-了/</a>
+      <a href="https://blog.davidwang.org/2022/10/12/qemu-riscv-install/" title="使用 QEMU 搭建 RISC-v 开发环境">https://blog.davidwang.org/2022/10/12/qemu-riscv-install/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -269,21 +296,18 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E6%97%A5%E5%BF%97/" rel="tag"># 日志</a>
+              <a href="/tags/riscv/" rel="tag"># riscv</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/03/21/%E8%AE%B0%E4%B8%80%E6%AC%A1-arch-%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0/" rel="prev" title="记一次 Arch 内核更新">
-                  <i class="fa fa-chevron-left"></i> 记一次 Arch 内核更新
+                <a href="/2022/07/20/spring-security-new-config/" rel="prev" title="Spring Security 新版配置文件写法">
+                  <i class="fa fa-chevron-left"></i> Spring Security 新版配置文件写法
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/04/12/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BA%89%E8%AE%BA/" rel="next" title="记一次争论">
-                  记一次争论 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
