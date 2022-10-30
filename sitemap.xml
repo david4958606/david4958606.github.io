@@ -150,14 +150,14 @@
   </url>
   
   <url>
-    <loc>https://blog.davidwang.org/tags/%E6%97%A5%E5%BF%97/</loc>
+    <loc>https://blog.davidwang.org/tags/spring-security/</loc>
     <lastmod>2022-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.davidwang.org/tags/spring-security/</loc>
+    <loc>https://blog.davidwang.org/tags/%E6%97%A5%E5%BF%97/</loc>
     <lastmod>2022-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
