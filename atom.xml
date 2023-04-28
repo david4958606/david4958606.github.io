@@ -6,7 +6,7 @@
   <link href="https://blog.davidwang.org/atom.xml" rel="self"/>
   
   <link href="https://blog.davidwang.org/"/>
-  <updated>2022-11-29T08:32:59.000Z</updated>
+  <updated>2023-04-28T17:44:27.000Z</updated>
   <id>https://blog.davidwang.org/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用 Cloudflare Workers 反代 RSS 订阅</title>
+    <link href="https://blog.davidwang.org/2023/04/28/js-rss-proxy/"/>
+    <id>https://blog.davidwang.org/2023/04/28/js-rss-proxy/</id>
+    <published>2023-04-28T17:44:27.000Z</published>
+    <updated>2023-04-28T17:44:27.000Z</updated>
+    
+    
+    <summary type="html">一个使用 JavaScript 编写的 RSS 反代脚本</summary>
+    
+    
+    
+    
+    <category term="JavaScript" scheme="https://blog.davidwang.org/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>OBS 简易使用指南</title>
