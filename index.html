@@ -239,26 +239,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="Verilog-模块"><a href="#Verilog-模块" class="headerlink" title="Verilog 模块"></a>Verilog 模块</h2><p>一个 Verilog 项目由数个模块构成，每个模块由 <code>module</code> 开始，<code>endmodule</code> 结束。例如：</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( <span class="keyword">input</span> in, <span class="keyword">output</span> out );</span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-<p>在上面这个例子中，<code>top_module</code> 就是模块名称，后面括号里则是输入输出端口。</p>
-<h2 id="Wire-类型和-Assign-关键字"><a href="#Wire-类型和-Assign-关键字" class="headerlink" title="Wire 类型和 Assign 关键字"></a>Wire 类型和 Assign 关键字</h2><p>Verilog 中的 wire 是定向的，从一段流向另一段，而且只能用于传递数据而不能存储。模块中定义的输入与输出默认是 wire 类型：</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> my_module(<span class="keyword">input</span> a, <span class="keyword">input</span> b, <span class="keyword">output</span> c);</span><br><span class="line">    <span class="comment">// 这里的 a, b, c 都默认是 wire 类型的信号</span></span><br><span class="line">    <span class="comment">// 可以在模块内部直接使用这些信号进行逻辑操作</span></span><br><span class="line">    <span class="keyword">assign</span> c = a &amp; b;</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-<p><code>assign</code> 关键字用于向 wire 连续赋值——想象下：当导线的一端改变时，另一端也将立即改变，这也符合 wire 不存储只传递的特性。<code>wire</code> 类型可以先定义再用 <code>assign</code> 赋值，也可以在定义时直接赋值，不用 <code>assign</code>。</p>
-<img src="/2024/04/10/verilog-01/img01.png" class="">
-
-<p><code>assign</code> 语句实际上描述了模块内各部分的<em>连接</em>，而不是赋值，所以，<code>assign</code> 语句的先后顺序并不影响分配的结果，同时，<code>assign</code> 并不是导线，它只是把导线连到一起，导线是单独声明的（使用 <code>wire</code> 关键字）。</p>
-<p>下面这个例子展示了一个输入信号可以连接到多个输出信号（想象一个端点连接两条线到两个不同的端点）。</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module (</span><br><span class="line"> <span class="keyword">input</span> a,</span><br><span class="line"> <span class="keyword">input</span> b,</span><br><span class="line"> <span class="keyword">input</span> c,</span><br><span class="line"> <span class="keyword">output</span> w,</span><br><span class="line"> <span class="keyword">output</span> x,</span><br><span class="line"> <span class="keyword">output</span> y,</span><br><span class="line"> <span class="keyword">output</span> z  );</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">assign</span> w = a;</span><br><span class="line"> <span class="keyword">assign</span> x = b;</span><br><span class="line"> <span class="keyword">assign</span> y = b;</span><br><span class="line"> <span class="keyword">assign</span> z = c;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// If we&#x27;re certain about the width of each signal, using </span></span><br><span class="line"> <span class="comment">// the concatenation operator is equivalent and shorter:</span></span><br><span class="line"> <span class="comment">// assign &#123;w,x,y,z&#125; = &#123;a,b,b,c&#125;;</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
-<img src="/2024/04/10/verilog-01/img02.png" class="">
-
-<p>如注释里写的，这里也可以用连接运算符，形式是 <code>&#123;signal1, signal2, …, signalN&#125;</code>，这个符号的作用是把几个信号连起来组成一个带宽更大的信号，比如 <code>&#123;1&#39;b0, 1&#39;b1&#125;</code> 就等同于 <code>&#123;2&#39;b01&#125;</code>。</p>
-<h2 id="按位操作符"><a href="#按位操作符" class="headerlink" title="按位操作符"></a>按位操作符</h2><p>与 C 语言一样，Verilog 也有按位操作符，非 <code>~</code>、与 <code>&amp;</code> 、或 <code>|</code> 和异或 <code>^</code>。有了这些，就可以组合出其他的逻辑门了，比如异非或：</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> <span class="keyword">xnor</span>(<span class="keyword">input</span> a, <span class="keyword">input</span> b, <span class="keyword">output</span> out);</span><br><span class="line"> <span class="keyword">assign</span> out = ~(a ^ b);</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
-
+          <p>Verilog 基础语法</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/04/10/verilog-01/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
