@@ -6,7 +6,7 @@
   <link href="https://blog.davidwang.org/atom.xml" rel="self"/>
   
   <link href="https://blog.davidwang.org/"/>
-  <updated>2023-04-28T17:44:27.000Z</updated>
+  <updated>2024-04-10T14:09:15.000Z</updated>
   <id>https://blog.davidwang.org/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>01 - Verilog 基础语法</title>
+    <link href="https://blog.davidwang.org/2024/04/10/verilog-01/"/>
+    <id>https://blog.davidwang.org/2024/04/10/verilog-01/</id>
+    <published>2024-04-10T14:09:15.000Z</published>
+    <updated>2024-04-10T14:09:15.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Verilog-模块&quot;&gt;&lt;a href=&quot;#Verilog-模块&quot; class=&quot;headerlink&quot; title=&quot;Verilog 模块&quot;&gt;&lt;/a&gt;Verilog 模块&lt;/h2&gt;&lt;p&gt;一个 Verilog 项目由数个模块构成，每个模块由</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Verilog" scheme="https://blog.davidwang.org/tags/verilog/"/>
+    
+    <category term="EE" scheme="https://blog.davidwang.org/tags/ee/"/>
+    
+  </entry>
   
   <entry>
     <title>使用 Cloudflare Workers 反代 RSS 订阅</title>
@@ -166,9 +191,9 @@
     
     <category term="Java" scheme="https://blog.davidwang.org/tags/java/"/>
     
-    <category term="IntelliJ IDEA" scheme="https://blog.davidwang.org/tags/intellij-idea/"/>
-    
     <category term="Maven" scheme="https://blog.davidwang.org/tags/maven/"/>
+    
+    <category term="IntelliJ IDEA" scheme="https://blog.davidwang.org/tags/intellij-idea/"/>
     
   </entry>
   
