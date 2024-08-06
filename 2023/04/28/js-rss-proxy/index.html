@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
-
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple_touch_icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
@@ -16,10 +15,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" integrity="sha256-jTIdiMuX/e3DGJUGwl3pKSxuc6YOuqtJYkM0bGQESA4=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.davidwang.org","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.davidwang.org","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="一个使用 JavaScript 编写的 RSS 反代脚本">
 <meta property="og:type" content="article">
@@ -49,18 +48,20 @@
 
 
 
+
+
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="David 自留地" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
@@ -81,7 +82,7 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
@@ -96,15 +97,9 @@
 
 
 
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-overview-active">
@@ -124,15 +119,15 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">David Wang</p>
   <div class="site-description" itemprop="description">编程技术随笔</div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -142,51 +137,39 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author site-overview-item animated">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/david4958606" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;david4958606" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+        <a href="https://github.com/david4958606" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;david4958606" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://space.bilibili.com/3788061" title="BiliBili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;3788061" rel="noopener" target="_blank"><i class="fab fa-bilibili fa-fw"></i>BiliBili</a>
+        <a href="https://space.bilibili.com/3788061" title="BiliBili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;3788061" rel="noopener me" target="_blank"><i class="fab fa-bilibili fa-fw"></i>BiliBili</a>
       </span>
   </div>
-  <div class="cc-license site-overview-item animated" itemprop="license">
+  <div class="cc-license animated" itemprop="license">
     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
-  </div>
-
-
-  <div class="links-of-blogroll site-overview-item animated">
-    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://yhblogs.cn/" title="https:&#x2F;&#x2F;yhblogs.cn&#x2F;" rel="noopener" target="_blank">がんばるう</a>
-        </li>
-    </ul>
   </div>
 
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://yhblogs.cn/" title="https:&#x2F;&#x2F;yhblogs.cn&#x2F;" rel="noopener" target="_blank">がんばるう</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
 
-  <a href="https://github.com/david4958606" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -210,7 +193,7 @@
       <meta itemprop="name" content="David 自留地">
       <meta itemprop="description" content="编程技术随笔">
     </span>
-    
+
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="使用 Cloudflare Workers 反代 RSS 订阅 | David 自留地">
       <meta itemprop="description" content="一个使用 JavaScript 编写的 RSS 反代脚本">
@@ -241,8 +224,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <p>最近因为种种原因，原本可以访问的部分动漫种子站也无法访问了，对于网页端的访问倒还好说，但 BT 软件的 RSS 自动下载功能就失效了，笔者参考了<a target="_blank" rel="noopener" href="https://bgm.tv/group/topic/380685">这篇文章</a>，写了这个 JavaScript 脚本，可以直接部署在 Cloudflare Workers 上，使用时直接在需要反代的网址前加上对应的域名就好了，对除了磁力链接以外的种子下载连接也做了反代。具体的部署就请看前面的链接吧，直接上代码了：</p>
+    <div class="post-body" itemprop="articleBody"><p>最近因为种种原因，原本可以访问的部分动漫种子站也无法访问了，对于网页端的访问倒还好说，但 BT 软件的 RSS 自动下载功能就失效了，笔者参考了<a target="_blank" rel="noopener" href="https://bgm.tv/group/topic/380685">这篇文章</a>，写了这个 JavaScript 脚本，可以直接部署在 Cloudflare Workers 上，使用时直接在需要反代的网址前加上对应的域名就好了，对除了磁力链接以外的种子下载连接也做了反代。具体的部署就请看前面的链接吧，直接上代码了：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * https://github.com/netnr/workers</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 2019-10-12 - 2022-05-05</span></span><br><span class="line"><span class="comment"> * netnr</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * https://github.com/Rongronggg9/rsstt-img-relay</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * 2021-09-13 - 2022-05-29</span></span><br><span class="line"><span class="comment"> * modified by Rongronggg9</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 2023-4-21 </span></span><br><span class="line"><span class="comment"> * modified by papersman</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="keyword">async</span> <span class="title function_">fetch</span>(<span class="params">request, _env</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">await</span> <span class="title function_">handleRequest</span>(request);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Configurations</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">    <span class="comment">// 是否丢弃请求中的 Referer，在目标网站应用防盗链时有用</span></span><br><span class="line">    <span class="attr">dropReferer</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// 黑名单，URL 中含有任何一个关键字都会被阻断</span></span><br><span class="line">    <span class="comment">// blockList: [&quot;.m3u8&quot;, &quot;.ts&quot;, &quot;.acc&quot;, &quot;.m4s&quot;, &quot;photocall.tv&quot;, &quot;googlevideo.com&quot;, &quot;liveradio.ie&quot;, &quot;.gov&quot;],</span></span><br><span class="line">    <span class="attr">blockList</span>: [],</span><br><span class="line">    <span class="attr">typeList</span>: [<span class="string">&quot;image&quot;</span>, <span class="string">&quot;video&quot;</span>, <span class="string">&quot;audio&quot;</span>, <span class="string">&quot;application&quot;</span>, <span class="string">&quot;font&quot;</span>, <span class="string">&quot;model&quot;</span>, <span class="string">&quot;html&quot;</span>, <span class="string">&quot;text&quot;</span>, <span class="string">&quot;zip&quot;</span>]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Respond to the request</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">Request</span>&#125; <span class="variable">request</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">handleRequest</span>(<span class="params">request</span>) &#123;</span><br><span class="line">    <span class="comment">//请求头部、返回对象</span></span><br><span class="line">    <span class="keyword">let</span> reqHeaders = <span class="keyword">new</span> <span class="title class_">Headers</span>(request.<span class="property">headers</span>),</span><br><span class="line">        outBody, outStatus = <span class="number">200</span>, outStatusText = <span class="string">&#x27;OK&#x27;</span>, outCt = <span class="literal">null</span>, outHeaders = <span class="keyword">new</span> <span class="title class_">Headers</span>(&#123;</span><br><span class="line">            <span class="string">&quot;Access-Control-Allow-Origin&quot;</span>: <span class="string">&quot;*&quot;</span>,</span><br><span class="line">            <span class="string">&quot;Access-Control-Allow-Methods&quot;</span>: <span class="string">&quot;GET, POST, PUT, PATCH, DELETE, OPTIONS&quot;</span>,</span><br><span class="line">            <span class="string">&quot;Access-Control-Allow-Headers&quot;</span>: reqHeaders.<span class="title function_">get</span>(<span class="string">&#x27;Access-Control-Allow-Headers&#x27;</span>) || <span class="string">&quot;Accept, Authorization, Cache-Control, Content-Type, DNT, If-Modified-Since, Keep-Alive, Origin, User-Agent, X-Requested-With, Token, x-access-token&quot;</span></span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">//取域名第一个斜杠后的所有信息为代理链接</span></span><br><span class="line">        <span class="keyword">let</span> url = request.<span class="property">url</span>.<span class="title function_">substr</span>(<span class="number">8</span>);</span><br><span class="line">        url = <span class="built_in">decodeURIComponent</span>(url.<span class="title function_">substr</span>(url.<span class="title function_">indexOf</span>(<span class="string">&#x27;/&#x27;</span>) + <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//需要忽略的代理</span></span><br><span class="line">        <span class="keyword">if</span> (request.<span class="property">method</span> == <span class="string">&quot;OPTIONS&quot;</span> || url.<span class="property">length</span> &lt; <span class="number">3</span> || url.<span class="title function_">indexOf</span>(<span class="string">&#x27;.&#x27;</span>) == -<span class="number">1</span> || url == <span class="string">&quot;favicon.ico&quot;</span> || url == <span class="string">&quot;robots.txt&quot;</span>) &#123;</span><br><span class="line">            <span class="comment">//输出提示</span></span><br><span class="line">            <span class="keyword">const</span> invalid = !(request.<span class="property">method</span> == <span class="string">&quot;OPTIONS&quot;</span> || url.<span class="property">length</span> === <span class="number">0</span>)</span><br><span class="line">            outBody = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">                <span class="attr">code</span>: invalid ? <span class="number">400</span> : <span class="number">0</span>,</span><br><span class="line">                <span class="attr">usage</span>: <span class="string">&#x27;Add https://rss.sakisakura.moe/ before the RSS URL you want to proxy.&#x27;</span>,</span><br><span class="line">            &#125;);</span><br><span class="line">            outCt = <span class="string">&quot;application/json&quot;</span>;</span><br><span class="line">            outStatus = invalid ? <span class="number">400</span> : <span class="number">200</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//阻断</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (<span class="title function_">blockUrl</span>(url)) &#123;</span><br><span class="line">            outBody = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">                <span class="attr">code</span>: <span class="number">403</span>,</span><br><span class="line">                <span class="attr">msg</span>: <span class="string">&#x27;The keyword &quot;&#x27;</span> + config.<span class="property">blockList</span>.<span class="title function_">join</span>(<span class="string">&#x27; , &#x27;</span>) + <span class="string">&#x27;&quot; was block-listed by the operator of this proxy.&#x27;</span></span><br><span class="line">            &#125;);</span><br><span class="line">            outCt = <span class="string">&quot;application/json&quot;</span>;</span><br><span class="line">            outStatus = <span class="number">403</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            url = <span class="title function_">fixUrl</span>(url);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//构建 fetch 参数</span></span><br><span class="line">            <span class="keyword">let</span> fp = &#123;</span><br><span class="line">                <span class="attr">method</span>: request.<span class="property">method</span>,</span><br><span class="line">                <span class="attr">headers</span>: &#123;&#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 发起 fetch</span></span><br><span class="line">            <span class="keyword">let</span> fr = (<span class="keyword">await</span> <span class="title function_">fetch</span>(url, fp));</span><br><span class="line">            outCt = fr.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;content-type&#x27;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//保留头部其它信息</span></span><br><span class="line">            <span class="keyword">const</span> dropHeaders = [<span class="string">&#x27;content-length&#x27;</span>, <span class="string">&#x27;content-type&#x27;</span>, <span class="string">&#x27;host&#x27;</span>];</span><br><span class="line">            <span class="keyword">if</span> (config.<span class="property">dropReferer</span>) dropHeaders.<span class="title function_">push</span>(<span class="string">&#x27;referer&#x27;</span>);</span><br><span class="line">            <span class="keyword">let</span> he = reqHeaders.<span class="title function_">entries</span>();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> h <span class="keyword">of</span> he) &#123;</span><br><span class="line">                <span class="keyword">const</span> key = h[<span class="number">0</span>], value = h[<span class="number">1</span>];</span><br><span class="line">                <span class="keyword">if</span> (!dropHeaders.<span class="title function_">includes</span>(key)) &#123;</span><br><span class="line">                    fp.<span class="property">headers</span>[key] = value;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (config.<span class="property">dropReferer</span> &amp;&amp; url.<span class="title function_">includes</span>(<span class="string">&#x27;.sinaimg.cn/&#x27;</span>)) fp.<span class="property">headers</span>[<span class="string">&#x27;referer&#x27;</span>] = <span class="string">&#x27;https://weibo.com/&#x27;</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 当访问mikanani.me/RSS的时候，将返回的xml中的mikanani.me替换</span></span><br><span class="line">            <span class="keyword">if</span> (url.<span class="title function_">includes</span>(<span class="string">&#x27;mikanani.me/RSS&#x27;</span>)) &#123;</span><br><span class="line">                <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(url, fp);</span><br><span class="line">                <span class="keyword">const</span> text = <span class="keyword">await</span> response.<span class="title function_">text</span>();</span><br><span class="line">                outBody = text.<span class="title function_">replace</span>(<span class="regexp">/mikanani.me\/Download\//g</span>, <span class="string">&#x27;rss.sakisakura.moe/https://mikanani.me/Download/&#x27;</span>);</span><br><span class="line">                outCt = response.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;content-type&#x27;</span>);</span><br><span class="line">                outStatus = response.<span class="property">status</span>;</span><br><span class="line">                outStatusText = response.<span class="property">statusText</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (url.<span class="title function_">includes</span>(<span class="string">&#x27;acg.rip/.xml&#x27;</span>)) &#123;  <span class="comment">//当访问acg.rip/.xml的时候，将返回的xml中的acg.rip/t/替换</span></span><br><span class="line">                <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(url, fp);</span><br><span class="line">                <span class="keyword">const</span> text = <span class="keyword">await</span> response.<span class="title function_">text</span>();</span><br><span class="line">                outBody = text.<span class="title function_">replace</span>(<span class="regexp">/acg.rip\/t\//g</span>, <span class="string">&#x27;rss.sakisakura.moe/https://acg.rip/t/&#x27;</span>);</span><br><span class="line">                outCt = response.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;content-type&#x27;</span>);</span><br><span class="line">                outStatus = response.<span class="property">status</span>;</span><br><span class="line">                outStatusText = response.<span class="property">statusText</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (url.<span class="title function_">includes</span>(<span class="string">&#x27;bangumi.moe/rss&#x27;</span>)) &#123;  <span class="comment">//当访问bangumi.moe/rss的时候，将返回的xml中的bangumi.moe/download替换</span></span><br><span class="line">                <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(url, fp);</span><br><span class="line">                <span class="keyword">const</span> text = <span class="keyword">await</span> response.<span class="title function_">text</span>();</span><br><span class="line">                outBody = text.<span class="title function_">replace</span>(<span class="regexp">/bangumi.moe\/download\//g</span>, <span class="string">&#x27;rss.sakisakura.moe/https://bangumi.moe/download/&#x27;</span>);</span><br><span class="line">                outCt = response.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;content-type&#x27;</span>);</span><br><span class="line">                outStatus = response.<span class="property">status</span>;</span><br><span class="line">                outStatusText = response.<span class="property">statusText</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (url.<span class="title function_">includes</span>(<span class="string">&#x27;share.dmhy.org/topics/rss/rss.xml&#x27;</span>) ||</span><br><span class="line">                        url.<span class="title function_">includes</span>(<span class="string">&#x27;blog.davidwang.org/atom.xml&#x27;</span>) || </span><br><span class="line">                        url.<span class="title function_">includes</span>(<span class="string">&#x27;acgnx.se/rss.xml&#x27;</span>)) &#123; <span class="comment">// 不需要修改下载链接的站点</span></span><br><span class="line">                outBody = fr.<span class="property">body</span>;</span><br><span class="line">                outStatus = fr.<span class="property">status</span>;</span><br><span class="line">                outStatusText = fr.<span class="property">statusText</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (url.<span class="title function_">includes</span>(<span class="string">&#x27;https://mikanani.me/Download/&#x27;</span>) || </span><br><span class="line">                        url.<span class="title function_">includes</span>(<span class="string">&#x27;https://acg.rip/t/&#x27;</span>) || </span><br><span class="line">                        url.<span class="title function_">includes</span>(<span class="string">&#x27;https://bangumi.moe/download/&#x27;</span>)) &#123; <span class="comment">// 保证能下载torrent文件</span></span><br><span class="line">                outBody = fr.<span class="property">body</span>;</span><br><span class="line">                outStatus = fr.<span class="property">status</span>;</span><br><span class="line">                outStatusText = fr.<span class="property">statusText</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123; <span class="comment">// 火焰啊，吞噬一切！</span></span><br><span class="line">                outBody = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">                    <span class="attr">code</span>: <span class="number">403</span>,</span><br><span class="line">                    <span class="attr">msg</span>: <span class="string">&#x27;Forbidden&#x27;</span></span><br><span class="line">                &#125;);</span><br><span class="line">                outCt = <span class="string">&quot;application/json&quot;</span>;</span><br><span class="line">                outStatus = <span class="number">403</span>;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> ([<span class="string">&quot;POST&quot;</span>, <span class="string">&quot;PUT&quot;</span>, <span class="string">&quot;PATCH&quot;</span>, <span class="string">&quot;DELETE&quot;</span>].<span class="title function_">indexOf</span>(request.<span class="property">method</span>) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">const</span> ct = (reqHeaders.<span class="title function_">get</span>(<span class="string">&#x27;content-type&#x27;</span>) || <span class="string">&quot;&quot;</span>).<span class="title function_">toLowerCase</span>();</span><br><span class="line">                fp.<span class="property">headers</span>[<span class="string">&#x27;content-type&#x27;</span>] = ct</span><br><span class="line">                <span class="keyword">if</span> (ct.<span class="title function_">includes</span>(<span class="string">&#x27;application/json&#x27;</span>)) &#123;</span><br><span class="line">                    fp.<span class="property">body</span> = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(<span class="keyword">await</span> request.<span class="title function_">json</span>());</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ct.<span class="title function_">includes</span>(<span class="string">&#x27;application/text&#x27;</span>) || ct.<span class="title function_">includes</span>(<span class="string">&#x27;text/html&#x27;</span>)) &#123;</span><br><span class="line">                    fp.<span class="property">body</span> = <span class="keyword">await</span> request.<span class="title function_">text</span>();</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ct.<span class="title function_">includes</span>(<span class="string">&#x27;form&#x27;</span>)) &#123;</span><br><span class="line">                    fp.<span class="property">body</span> = <span class="keyword">await</span> request.<span class="title function_">formData</span>();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    fp.<span class="property">body</span> = <span class="keyword">await</span> request.<span class="title function_">blob</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 阻断</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_">blockType</span>(outCt)) &#123;</span><br><span class="line">                outBody = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">                    <span class="attr">code</span>: <span class="number">415</span>,</span><br><span class="line">                    <span class="attr">msg</span>: <span class="string">&#x27;The keyword &quot;&#x27;</span> + config.<span class="property">typeList</span>.<span class="title function_">join</span>(<span class="string">&#x27; , &#x27;</span>) + <span class="string">&#x27;&quot; was whitelisted by the operator of this proxy, but got &quot;&#x27;</span> + outCt + <span class="string">&#x27;&quot;.&#x27;</span></span><br><span class="line">                &#125;);</span><br><span class="line">                outCt = <span class="string">&quot;application/json&quot;</span>;</span><br><span class="line">                outStatus = <span class="number">415</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">        outBody = err.<span class="property">stack</span>;</span><br><span class="line">        outCt = <span class="string">&quot;text/plain;charset=UTF-8&quot;</span>;</span><br><span class="line">        outStatus = <span class="number">500</span>;</span><br><span class="line">        outStatusText = <span class="string">&quot;Internal Server Error&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置类型</span></span><br><span class="line">    <span class="keyword">if</span> (outCt &amp;&amp; outCt != <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">        outHeaders.<span class="title function_">set</span>(<span class="string">&quot;content-type&quot;</span>, outCt);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> response = <span class="keyword">new</span> <span class="title class_">Response</span>(outBody, &#123;</span><br><span class="line">        <span class="attr">status</span>: outStatus,</span><br><span class="line">        <span class="attr">statusText</span>: outStatusText,</span><br><span class="line">        <span class="attr">headers</span>: outHeaders</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Fix URL</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">string</span>&#125; url </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fixUrl</span>(<span class="params">url</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (url.<span class="title function_">startsWith</span>(<span class="string">&#x27;http://&#x27;</span>) || url.<span class="title function_">startsWith</span>(<span class="string">&#x27;https://&#x27;</span>)) &#123;</span><br><span class="line">        <span class="keyword">return</span> url;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;http://&#x27;</span> + url;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 阻断 url</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">blockUrl</span>(<span class="params">url</span>) &#123;</span><br><span class="line">    url = url.<span class="title function_">toLowerCase</span>();</span><br><span class="line">    <span class="keyword">return</span> config.<span class="property">blockList</span>.<span class="title function_">some</span>(<span class="function"><span class="params">x</span> =&gt;</span> url.<span class="title function_">includes</span>(x));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 阻断 type</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">blockType</span>(<span class="params">type</span>) &#123;</span><br><span class="line">    type = type.<span class="title function_">toLowerCase</span>();</span><br><span class="line">    <span class="keyword">return</span> !config.<span class="property">typeList</span>.<span class="title function_">some</span>(<span class="function"><span class="params">x</span> =&gt;</span> type.<span class="title function_">includes</span>(x));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>这边笔者已经搭了一个服务了：<a target="_blank" rel="noopener" href="https://rss.sakisakura.moe/">https://rss.sakisakura.moe</a>，用的免费的 Workers 计划，每天能承载 10w 次请求。而且笔者的这个脚本做了比较严格的阻断，只有蜜柑、动漫花园、ACG.RIP、bangumi.moe 和 AcgnX 的 RSS 页面和对应的下载链接才能代理。</p>
@@ -267,7 +249,7 @@
       <a href="https://blog.davidwang.org/2023/04/28/js-rss-proxy/" title="使用 Cloudflare Workers 反代 RSS 订阅">https://blog.davidwang.org/2023/04/28/js-rss-proxy/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
   </li>
 </ul>
 </div>
@@ -278,13 +260,13 @@
   <div class="social-list">
 
       <div class="social-item">
-        <a target="_blank" class="social-link" href="/atom.xml">
-          <span class="icon">
-            <i class="fa fa-rss"></i>
-          </span>
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
 
-          <span class="label">RSS</span>
-        </a>
+            <span class="label">RSS</span>
+          </a>
       </div>
   </div>
 </div>
@@ -298,12 +280,12 @@
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2022/11/29/obs-guide/" rel="prev" title="OBS 简易使用指南">
-                  <i class="fa fa-chevron-left"></i> OBS 简易使用指南
+                  <i class="fa fa-angle-left"></i> OBS 简易使用指南
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/04/10/verilog-01/" rel="next" title="01 - Verilog 基础语法">
-                  01 - Verilog 基础语法 <i class="fa fa-chevron-right"></i>
+                <a href="/2024/04/10/verilog-01/" rel="next" title="Verilog 学习笔记 01 - Verilog 基础语法">
+                  Verilog 学习笔记 01 - Verilog 基础语法 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -322,15 +304,14 @@
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2024</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">David Wang</span>
-</div>
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">David Wang</span>
+  </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
@@ -338,10 +319,30 @@
   </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/david4958606" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
 
   
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
 
 
 
