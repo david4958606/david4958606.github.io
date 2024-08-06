@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>David 自留地</title>
+  <icon>https://blog.davidwang.org/icon.png</icon>
+  <subtitle>技术宅拯救世界</subtitle>
+  <link href="https://blog.davidwang.org/atom.xml" rel="self"/>
+  
+  <link href="https://blog.davidwang.org/"/>
+  <updated>2024-08-06T09:16:22.000Z</updated>
+  <id>https://blog.davidwang.org/</id>
+  
+  <author>
+    <name>David Wang</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Verilog 学习笔记 04 - 加法与减法</title>
+    <link href="https://blog.davidwang.org/2024/08/06/verilog-04/"/>
+    <id>https://blog.davidwang.org/2024/08/06/verilog-04/</id>
+    <published>2024-08-06T09:16:22.000Z</published>
+    <updated>2024-08-06T09:16:22.000Z</updated>
+    
+    
+    <summary type="html">Verilog 加法与减法</summary>
+    
+    
+    
+    
+    <category term="Verilog" scheme="https://blog.davidwang.org/tags/verilog/"/>
+    
+    <category term="EE" scheme="https://blog.davidwang.org/tags/ee/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Verilog 学习笔记 03 - Verilog 模块</title>
+    <link href="https://blog.davidwang.org/2024/08/06/verilog-03/"/>
+    <id>https://blog.davidwang.org/2024/08/06/verilog-03/</id>
+    <published>2024-08-06T09:16:18.000Z</published>
+    <updated>2024-08-06T09:16:18.000Z</updated>
+    
+    
+    <summary type="html">Verilog 模块</summary>
+    
+    
+    
+    
+    <category term="Verilog" scheme="https://blog.davidwang.org/tags/verilog/"/>
+    
+    <category term="EE" scheme="https://blog.davidwang.org/tags/ee/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Verilog 学习笔记 02 - Verilog 中的向量</title>
+    <link href="https://blog.davidwang.org/2024/08/06/verilog-02/"/>
+    <id>https://blog.davidwang.org/2024/08/06/verilog-02/</id>
+    <published>2024-08-06T03:03:46.000Z</published>
+    <updated>2024-08-06T03:03:46.000Z</updated>
+    
+    
+    <summary type="html">Verilog 中的向量</summary>
+    
+    
+    
+    
+    <category term="Verilog" scheme="https://blog.davidwang.org/tags/verilog/"/>
+    
+    <category term="EE" scheme="https://blog.davidwang.org/tags/ee/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Verilog 学习笔记 01 - Verilog 基础语法</title>
+    <link href="https://blog.davidwang.org/2024/04/10/verilog-01/"/>
+    <id>https://blog.davidwang.org/2024/04/10/verilog-01/</id>
+    <published>2024-04-10T14:09:15.000Z</published>
+    <updated>2024-04-10T14:09:15.000Z</updated>
+    
+    
+    <summary type="html">Verilog 基础语法</summary>
+    
+    
+    
+    
+    <category term="Verilog" scheme="https://blog.davidwang.org/tags/verilog/"/>
+    
+    <category term="EE" scheme="https://blog.davidwang.org/tags/ee/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 Cloudflare Workers 反代 RSS 订阅</title>
+    <link href="https://blog.davidwang.org/2023/04/28/js-rss-proxy/"/>
+    <id>https://blog.davidwang.org/2023/04/28/js-rss-proxy/</id>
+    <published>2023-04-28T17:44:27.000Z</published>
+    <updated>2023-04-28T17:44:27.000Z</updated>
+    
+    
+    <summary type="html">一个使用 JavaScript 编写的 RSS 反代脚本</summary>
+    
+    
+    
+    
+    <category term="JavaScript" scheme="https://blog.davidwang.org/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OBS 简易使用指南</title>
+    <link href="https://blog.davidwang.org/2022/11/29/obs-guide/"/>
+    <id>https://blog.davidwang.org/2022/11/29/obs-guide/</id>
+    <published>2022-11-29T08:32:59.000Z</published>
+    <updated>2022-11-29T08:32:59.000Z</updated>
+    
+    
+    <summary type="html">本文简述了 OBS 自动构建系统的使用方法（以 WebUI 为主）</summary>
+    
+    
+    
+    
+    <category term="PLCT" scheme="https://blog.davidwang.org/tags/plct/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>搭建 Deepin RISCV QEMU 环境</title>
+    <link href="https://blog.davidwang.org/2022/10/27/deepin-riscv-qemu/"/>
+    <id>https://blog.davidwang.org/2022/10/27/deepin-riscv-qemu/</id>
+    <published>2022-10-27T14:06:47.000Z</published>
+    <updated>2022-10-27T14:06:47.000Z</updated>
+    
+    
+    <summary type="html">本文简述了如何构建 Deepin risc-v 的 qemu 镜像</summary>
+    
+    
+    
+    
+    <category term="deepin" scheme="https://blog.davidwang.org/tags/deepin/"/>
+    
+    <category term="riscv" scheme="https://blog.davidwang.org/tags/riscv/"/>
+    
+    <category term="PLCT" scheme="https://blog.davidwang.org/tags/plct/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为 Debian RISC-v 打包 Neofetch</title>
+    <link href="https://blog.davidwang.org/2022/10/12/riscv-neofetch-source/"/>
+    <id>https://blog.davidwang.org/2022/10/12/riscv-neofetch-source/</id>
+    <published>2022-10-12T12:21:20.000Z</published>
+    <updated>2022-10-12T12:21:20.000Z</updated>
+    
+    
+    <summary type="html">本文以 neofetch 为例，介绍了 Debian RISC-V 的软件包打包流程</summary>
+    
+    
+    
+    
+    <category term="riscv" scheme="https://blog.davidwang.org/tags/riscv/"/>
+    
+    <category term="PLCT" scheme="https://blog.davidwang.org/tags/plct/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 QEMU 搭建 RISC-v 开发环境</title>
+    <link href="https://blog.davidwang.org/2022/10/12/qemu-riscv-install/"/>
+    <id>https://blog.davidwang.org/2022/10/12/qemu-riscv-install/</id>
+    <published>2022-10-12T09:42:51.000Z</published>
+    <updated>2022-10-12T09:42:51.000Z</updated>
+    
+    
+    <summary type="html">本文比较详细的描述了如何在 Archlinux 下安装 QEMU 并搭建 RISC-V 开发环境</summary>
+    
+    
+    
+    
+    <category term="riscv" scheme="https://blog.davidwang.org/tags/riscv/"/>
+    
+    <category term="PLCT" scheme="https://blog.davidwang.org/tags/plct/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Security 新版配置文件写法</title>
+    <link href="https://blog.davidwang.org/2022/07/20/spring-security-new-config/"/>
+    <id>https://blog.davidwang.org/2022/07/20/spring-security-new-config/</id>
+    <published>2022-07-20T09:02:14.000Z</published>
+    <updated>2022-07-20T09:02:14.000Z</updated>
+    
+    
+    <summary type="html">Spring Security 在 5.7.0 及之后的版本中启用的新的配置文件写法。本文提供了一些示例。</summary>
+    
+    
+    
+    
+    <category term="Java" scheme="https://blog.davidwang.org/tags/java/"/>
+    
+    <category term="Spring Boot" scheme="https://blog.davidwang.org/tags/spring-boot/"/>
+    
+    <category term="Spring Security" scheme="https://blog.davidwang.org/tags/spring-security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot 的热部署配置</title>
+    <link href="https://blog.davidwang.org/2022/07/04/spring-boot-hot-deploy/"/>
+    <id>https://blog.davidwang.org/2022/07/04/spring-boot-hot-deploy/</id>
+    <published>2022-07-04T05:17:51.000Z</published>
+    <updated>2022-07-04T05:17:51.000Z</updated>
+    
+    
+    <summary type="html">在编写 Spring Boot 项目时，我们通常会希望能够做到「不停机」的部署模式，本文说明了如何配置 pom.xml 和 Idea IDE 以实现热部署。</summary>
+    
+    
+    
+    
+    <category term="Java" scheme="https://blog.davidwang.org/tags/java/"/>
+    
+    <category term="IntelliJ IDEA" scheme="https://blog.davidwang.org/tags/intellij-idea/"/>
+    
+    <category term="Spring Boot" scheme="https://blog.davidwang.org/tags/spring-boot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 IntelliJ IDEA 中使用 Maven 安装依赖并生成 JAR 文件</title>
+    <link href="https://blog.davidwang.org/2022/05/21/java-maven-jar/"/>
+    <id>https://blog.davidwang.org/2022/05/21/java-maven-jar/</id>
+    <published>2022-05-21T09:10:27.000Z</published>
+    <updated>2022-05-21T09:10:27.000Z</updated>
+    
+    
+    <summary type="html">笔者最近在学习 Java，在对 Java 的基础语言有了一定的了解后，就想着写一些小项目并打包成可执行的 JAR 文件。如何构建包含依赖的 JAR 文件呢？</summary>
+    
+    
+    
+    
+    <category term="Java" scheme="https://blog.davidwang.org/tags/java/"/>
+    
+    <category term="Maven" scheme="https://blog.davidwang.org/tags/maven/"/>
+    
+    <category term="IntelliJ IDEA" scheme="https://blog.davidwang.org/tags/intellij-idea/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记一次争论</title>
+    <link href="https://blog.davidwang.org/2022/04/12/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BA%89%E8%AE%BA/"/>
+    <id>https://blog.davidwang.org/2022/04/12/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BA%89%E8%AE%BA/</id>
+    <published>2022-04-12T19:27:41.000Z</published>
+    <updated>2022-04-12T19:27:41.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;最新进展&quot;&gt;&lt;a href=&quot;#最新进展&quot; class=&quot;headerlink&quot; title=&quot;最新进展&quot;&gt;&lt;/a&gt;最新进展&lt;/h2&gt;&lt;p&gt;经笔者调查发现，这个 foreverddb，最早fork的是 RisingEntropy 的 &lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="檄文" scheme="https://blog.davidwang.org/tags/%E6%AA%84%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>可以用 GitHub Copilot 了</title>
+    <link href="https://blog.davidwang.org/2022/03/28/%E5%8F%AF%E4%BB%A5%E7%94%A8-github-copilot-%E4%BA%86/"/>
+    <id>https://blog.davidwang.org/2022/03/28/%E5%8F%AF%E4%BB%A5%E7%94%A8-github-copilot-%E4%BA%86/</id>
+    <published>2022-03-28T08:15:32.000Z</published>
+    <updated>2022-03-28T08:15:32.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;笔者在几乎一个月前申请了 GitHub Copilot 这个好用的服务，现在已经可以用了，这个服务的好处是可以自动帮你补全很多代码，你只要为你的函数起一个名字，就可以自动补全了。&lt;/p&gt;
+&lt;p&gt;比如下面的这段 Python 代码的函数主体部分就是 Copilot</summary>
+        
+      
+    
+    
+    
+    
+    <category term="日志" scheme="https://blog.davidwang.org/tags/%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记一次 Arch 内核更新</title>
+    <link href="https://blog.davidwang.org/2022/03/21/%E8%AE%B0%E4%B8%80%E6%AC%A1-arch-%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0/"/>
+    <id>https://blog.davidwang.org/2022/03/21/%E8%AE%B0%E4%B8%80%E6%AC%A1-arch-%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0/</id>
+    <published>2022-03-21T17:37:46.000Z</published>
+    <updated>2022-03-21T17:37:46.000Z</updated>
+    
+    
+    <summary type="html">今天尝试着把 Arch 的内核改成了 mainline 版本，但是开机时卡住了，究其原因，是显卡驱动的问题。</summary>
+    
+    
+    
+    
+    <category term="Arch" scheme="https://blog.davidwang.org/tags/arch/"/>
+    
+    <category term="Linux" scheme="https://blog.davidwang.org/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>重构博客</title>
+    <link href="https://blog.davidwang.org/2022/03/20/%E9%87%8D%E6%9E%84%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://blog.davidwang.org/2022/03/20/%E9%87%8D%E6%9E%84%E5%8D%9A%E5%AE%A2/</id>
+    <published>2022-03-20T06:52:31.000Z</published>
+    <updated>2022-03-20T06:52:31.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;为什么要重构&quot;&gt;&lt;a href=&quot;#为什么要重构&quot; class=&quot;headerlink&quot; title=&quot;为什么要重构&quot;&gt;&lt;/a&gt;为什么要重构&lt;/h2&gt;&lt;p&gt;笔者之前的博客是在一台腾讯云学生机上部署了宝塔面板和</summary>
+        
+      
+    
+    
+    
+    
+    <category term="日志" scheme="https://blog.davidwang.org/tags/%E6%97%A5%E5%BF%97/"/>
+    
+    <category term="nodejs" scheme="https://blog.davidwang.org/tags/nodejs/"/>
+    
+  </entry>
+  
+</feed>
