@@ -234,7 +234,7 @@
 </ul>
 <h2 id="为什么要重构"><a href="#为什么要重构" class="headerlink" title="为什么要重构"></a>为什么要重构</h2><p>笔者之前的博客是在一台腾讯云学生机上部署了宝塔面板和 WordPress，这俩结合起来的优点一是部署方式傻瓜，二是在 WordPress 上写作和管理都有比较完备的 WebUI，非常方便。但这个方案的缺点也很明显，就是过于臃肿了，而且 WordPress 在国内的网络环境下也很难用，主题和插件安装都很慢。所以在经历了一次删库风波后，我就暂时停用了这个博客。</p>
 <p>这次重新开始写博客，主要是响应 NetUnion 制作主页和期刊的号召，也是想着把之前落下的写作习惯找补回来。</p>
-<h2 id="关于博客系统的选择"><a href="#关于博客系统的选择" class="headerlink" title="关于博客系统的选择"></a>关于博客系统的选择</h2><p>现在比较流行的搭建个人博客的方式主要有两种，一是我上文提到的在服务器上或者利用 SaaS 部署类似于 WordPress 这类基于 LAMP 的博客，第二种就是生成静态页面并直接显示（比如利用 GitHUb Pages）的模式，这种方式的主要代表就是 Hexo。</p>
+<h2 id="关于博客系统的选择"><a href="#关于博客系统的选择" class="headerlink" title="关于博客系统的选择"></a>关于博客系统的选择</h2><p>现在比较流行的搭建个人博客的方式主要有两种，一是我上文提到的在服务器上或者利用 SaaS 部署类似于 WordPress 这类基于 LAMP 的博客，第二种就是生成静态页面并直接显示（比如利用 GitHub Pages）的模式，这种方式的主要代表就是 Hexo。</p>
 <p>考虑到笔者的博客以静态页面为主且服务器资源较少，笔者采用了 Hexo + GitHub Pages 的方案，同时将 Hexo 的运行环境也上传至 GitHub，使用 GitHub Action 生成并部署页面。</p>
 <h2 id="重构流程"><a href="#重构流程" class="headerlink" title="重构流程"></a>重构流程</h2><h3 id="安装-nodejs-和-npm"><a href="#安装-nodejs-和-npm" class="headerlink" title="安装 nodejs 和 npm"></a>安装 nodejs 和 npm</h3><p>Windows 用户直接在官网下载安装包后一路 Next 就好，安装程序会自动将安装目录添加至 Path 环境变量；Linux 用户直接使用包管理器即可。</p>
 <p>安装好后，新建文件夹 <code>hexo-env</code> 这是我们本地的 hexo 环境所属的文件夹。</p>
