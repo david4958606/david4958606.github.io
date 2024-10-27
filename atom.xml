@@ -6,7 +6,7 @@
   <link href="https://blog.davidwang.org/atom.xml" rel="self"/>
   
   <link href="https://blog.davidwang.org/"/>
-  <updated>2024-08-06T09:16:22.000Z</updated>
+  <updated>2024-10-27T07:09:00.000Z</updated>
   <id>https://blog.davidwang.org/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>重构博客</title>
+    <link href="https://blog.davidwang.org/2024/10/27/refactor-blog/"/>
+    <id>https://blog.davidwang.org/2024/10/27/refactor-blog/</id>
+    <published>2024-10-27T07:09:00.000Z</published>
+    <updated>2024-10-27T07:09:00.000Z</updated>
+    
+    
+    <summary type="html">重构博客</summary>
+    
+    
+    
+    
+    <category term="nodejs" scheme="https://blog.davidwang.org/tags/nodejs/"/>
+    
+    <category term="日志" scheme="https://blog.davidwang.org/tags/%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
   
   <entry>
     <title>Verilog 学习笔记 04 - 加法与减法</title>
@@ -311,31 +330,6 @@
     <category term="Arch" scheme="https://blog.davidwang.org/tags/arch/"/>
     
     <category term="Linux" scheme="https://blog.davidwang.org/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>重构博客</title>
-    <link href="https://blog.davidwang.org/2022/03/20/%E9%87%8D%E6%9E%84%E5%8D%9A%E5%AE%A2/"/>
-    <id>https://blog.davidwang.org/2022/03/20/%E9%87%8D%E6%9E%84%E5%8D%9A%E5%AE%A2/</id>
-    <published>2022-03-20T06:52:31.000Z</published>
-    <updated>2022-03-20T06:52:31.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;为什么要重构&quot;&gt;&lt;a href=&quot;#为什么要重构&quot; class=&quot;headerlink&quot; title=&quot;为什么要重构&quot;&gt;&lt;/a&gt;为什么要重构&lt;/h2&gt;&lt;p&gt;笔者之前的博客是在一台腾讯云学生机上部署了宝塔面板和</summary>
-        
-      
-    
-    
-    
-    
-    <category term="日志" scheme="https://blog.davidwang.org/tags/%E6%97%A5%E5%BF%97/"/>
-    
-    <category term="nodejs" scheme="https://blog.davidwang.org/tags/nodejs/"/>
     
   </entry>
   

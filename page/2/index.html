@@ -181,6 +181,82 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.davidwang.org/2022/07/20/spring-security-new-config/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="David Wang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="David 自留地">
+      <meta itemprop="description" content="编程技术随笔">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | David 自留地">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/20/spring-security-new-config/" class="post-title-link" itemprop="url">Spring Security 新版配置文件写法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-20 17:02:14" itemprop="dateCreated datePublished" datetime="2022-07-20T17:02:14+08:00">2022-07-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Spring Security 在 5.7.0 及之后的版本中启用的新的配置文件写法。本文提供了一些示例。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/20/spring-security-new-config/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://blog.davidwang.org/2022/07/04/spring-boot-hot-deploy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -533,110 +609,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.davidwang.org/2022/03/20/%E9%87%8D%E6%9E%84%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="David Wang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="David 自留地">
-      <meta itemprop="description" content="编程技术随笔">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | David 自留地">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/03/20/%E9%87%8D%E6%9E%84%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">重构博客</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-03-20 14:52:31" itemprop="dateCreated datePublished" datetime="2022-03-20T14:52:31+08:00">2022-03-20</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="为什么要重构"><a href="#为什么要重构" class="headerlink" title="为什么要重构"></a>为什么要重构</h2><p>笔者之前的博客是在一台腾讯云学生机上部署了宝塔面板和 WordPress，这俩结合起来的优点一是部署方式傻瓜，二是在 WordPress 上写作和管理都有比较完备的 WebUI，非常方便。但这个方案的缺点也很明显，就是过于臃肿了，而且 WordPress 在国内的网络环境下也很难用，主题和插件安装都很慢。所以在经历了一次删库风波后，我就暂时停用了这个博客。</p>
-<p>这次重新开始写博客，主要是响应 NetUnion 制作主页和期刊的号召，也是想着把之前落下的写作习惯找补回来。</p>
-<h2 id="关于博客系统的选择"><a href="#关于博客系统的选择" class="headerlink" title="关于博客系统的选择"></a>关于博客系统的选择</h2><p>现在比较流行的搭建个人博客的方式主要有两种，一是我上文提到的在服务器上或者利用 SaaS 部署类似于 WordPress 这类基于 LAMP 的博客，第二种就是生成静态页面并直接显示（比如利用 GitHUb Pages）的模式，这种方式的主要代表就是 Hexo。</p>
-<p>考虑到笔者的博客以静态页面为主且服务器资源较少，笔者采用了 Hexo + GitHub Pages 的方案，同时将 Hexo 的运行环境也上传至 GitHub，使用 GitHUb Action 生成并部署页面。</p>
-<h2 id="重构流程"><a href="#重构流程" class="headerlink" title="重构流程"></a>重构流程</h2><h3 id="安装-nodejs-和-npm"><a href="#安装-nodejs-和-npm" class="headerlink" title="安装 nodejs 和 npm"></a>安装 nodejs 和 npm</h3><p>Windows 用户直接在官网下载安装包后一路 Next 就好，安装程序会自动将安装目录添加至 Path 环境变量；Linux 用户直接使用包管理器即可。</p>
-<p>安装好后，新建文件夹 <code>hexo-env</code> 这是我们本地的 hexo 环境所属的文件夹。</p>
-<p>输入下列命令，下载并构建环境</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo<span class="literal">-env</span></span><br><span class="line">npm install hexo<span class="literal">-cli</span> <span class="literal">-g</span></span><br><span class="line">hexo init .</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-
-<p>等待进度条走完，我们的本地环境就搭建好了。</p>
-<h3 id="上传-Git"><a href="#上传-Git" class="headerlink" title="上传 Git"></a>上传 Git</h3><p>随后，需要将本地环境上传到 GitHub。在 GitHub 新建仓库 <code>hexo-env</code> 然后在本地执行下列命令。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin &lt;git url&gt;</span><br><span class="line">git branch -M master</span><br><span class="line">git add .</span><br><span class="line">git commit</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-
-<h3 id="编辑配置文件并更换主题"><a href="#编辑配置文件并更换主题" class="headerlink" title="编辑配置文件并更换主题"></a>编辑配置文件并更换主题</h3><p>Hexo 的配置文件是根目录的 <code>_config.yml</code>，读者可以按需对他进行修改，具体的配置内容请参考 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration">官方文档</a></p>
-<p>我选择了 Next 作为主题，并把它作为一个子模块导入我们的 Git 仓库中。</p>
-<p>在本地执行命令 <code>git submodule add https://github.com/next-theme/hexo-theme-next.git theme/next</code></p>
-<p>在根目录的 <code>_config.yml</code> 中修改 <code>theme: next</code>，并执行如下命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p>如果一切正常的话，终端的输出中就会显示 Next 的 Logo 了。访问 <code>http://localhost:4000</code> 查看主题效果。</p>
-<p>如果需要修改 Next 的配置，不能直接修改子模块中的内容，而需要在根目录下新建 <code>_config.next.yml</code> 文件并将 <code>theme/next/_config.yml</code> 中内容完整复制到其中，以后所有的配置修改需要在该文件中进行。</p>
-<h3 id="使用-GitHub-Action-自动构建并部署到-GitHub-Pages"><a href="#使用-GitHub-Action-自动构建并部署到-GitHub-Pages" class="headerlink" title="使用 GitHub Action 自动构建并部署到 GitHub Pages"></a>使用 GitHub Action 自动构建并部署到 GitHub Pages</h3><p>首先新建 GitHub 仓库，命名为 <code>&lt;username&gt;.github.io</code>，并生成 README。同时启用 GitHub Pages。</p>
-<p>准备一对 SSH 密钥，将公钥作为 Deploy Key 添加到 Pages 仓库，将私钥作为 Secret 添加到 <code>hexo-env</code> 并命名为 <code>DEPLOY_KEY</code>。</p>
-<p>在 Hexo 文件夹中安装插件 <code>npm install hexo-deployer-git --save</code>，并按照 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/one-command-deployment.html#Git">官方文档</a> 修改配置。</p>
-<p>在根目录中新建 <code>.github\workflows\main.yml</code> 并写入以下内容（参考：<a target="_blank" rel="noopener" href="https://github.com/sma11black/hexo-action">sma11black&#x2F;hexo-action</a>）</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Deploy</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span> [<span class="string">push</span>]</span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">A</span> <span class="string">job</span> <span class="string">to</span> <span class="string">deploy</span> <span class="string">blog.</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/checkout@v1</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">submodules:</span> <span class="literal">true</span> <span class="comment"># Checkout private submodules(themes or something else).</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Caching dependencies to speed up workflows. (GitHub will remove any cache entries that have not been accessed in over 7 days.)</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Cache</span> <span class="string">node</span> <span class="string">modules</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/cache@v1</span></span><br><span class="line">      <span class="attr">id:</span> <span class="string">cache</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">path:</span> <span class="string">node_modules</span></span><br><span class="line">        <span class="attr">key:</span> <span class="string">$&#123;&#123;</span> <span class="string">runner.os</span> <span class="string">&#125;&#125;-node-$&#123;&#123;</span> <span class="string">hashFiles(&#x27;**/package-lock.json&#x27;)</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">restore-keys:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          $&#123;&#123; runner.os &#125;&#125;-node-</span></span><br><span class="line"><span class="string"></span>    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Dependencies</span></span><br><span class="line">      <span class="attr">if:</span> <span class="string">steps.cache.outputs.cache-hit</span> <span class="type">!=</span> <span class="string">&#x27;true&#x27;</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">npm</span> <span class="string">ci</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Deploy hexo blog website.</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span></span><br><span class="line">      <span class="attr">id:</span> <span class="string">deploy</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">sma11black/hexo-action@v1.0.4</span></span><br><span class="line">      <span class="attr">with:</span></span><br><span class="line">        <span class="attr">deploy_key:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.DEPLOY_KEY</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="comment"># user_name: your github username  # (or delete this input setting to use bot account)</span></span><br><span class="line">        <span class="comment"># user_email: your github useremail  # (or delete this input setting to use bot account)</span></span><br><span class="line">        <span class="attr">commit_msg:</span> <span class="string">$&#123;&#123;</span> <span class="string">github.event.head_commit.message</span> <span class="string">&#125;&#125;</span>  <span class="comment"># (or delete this input setting to use hexo default settings)</span></span><br><span class="line">    <span class="comment"># Use the output from the `deploy` step(use for test action)</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Get</span> <span class="string">the</span> <span class="string">output</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">        <span class="string">echo</span> <span class="string">&quot;$<span class="template-variable">&#123;&#123; steps.deploy.outputs.notify &#125;&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>这样，每次将修改 push 到 <code>hexo-env</code> 时就会自动生成静态页面并部署到 Pages 仓库了。</p>
-<h2 id="从-Git-上获取并在本地重构-Hexo-环境并开始写作"><a href="#从-Git-上获取并在本地重构-Hexo-环境并开始写作" class="headerlink" title="从 Git 上获取并在本地重构 Hexo 环境并开始写作"></a>从 Git 上获取并在本地重构 Hexo 环境并开始写作</h2><p>如果只需要在不同工作环境中完成写作任务，首先克隆 <code>hexo-env</code> 仓库，并执行命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
-
-<p>要开始写作，执行 <code>hexo new post &quot;&lt;tile of your post&gt;&quot;</code> 后，会在 <code>source\_posts</code> 中生成 Markdown 文件，正常写作即可。</p>
-<p>如果需要在另外的工作环境中本地预览页面，还需要导入对应的子模块。首先克隆仓库到本地，然后执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> theme/next</span><br><span class="line">git submodule init</span><br><span class="line">git submodule update</span><br></pre></td></tr></table></figure>
-
-<p>对于其他的子模块同理。</p>
-
       
     </div>
 
