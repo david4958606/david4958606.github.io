@@ -24,13 +24,7 @@
     <updated>2024-11-17T08:29:44.000Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;关于-vcpkg&quot;&gt;&lt;a href=&quot;#关于-vcpkg&quot; class=&quot;headerlink&quot; title=&quot;关于 vcpkg&quot;&gt;&lt;/a&gt;关于 vcpkg&lt;/h2&gt;&lt;p&gt;vcpkg 是微软官方推出的 C&amp;#x2F;C++ 依赖管理系统，原生支持多平台，可以与</summary>
-        
-      
+    <summary type="html">使用 vcpkg 引入 Google Test 框架以及对应 CMake 配置写法</summary>
     
     
     

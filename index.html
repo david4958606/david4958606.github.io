@@ -223,29 +223,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="关于-vcpkg"><a href="#关于-vcpkg" class="headerlink" title="关于 vcpkg"></a>关于 vcpkg</h2><p>vcpkg 是微软官方推出的 C&#x2F;C++ 依赖管理系统，原生支持多平台，可以与 CMake 或 MSBuild 集成。</p>
-<p>vcpkg 支持全局安装以及分项目配置的清单模式。微软官方推荐后者。</p>
-<p>与 CMake 集成时，仅需为 CMake 指定环境变量 <code>&quot;CMAKE_TOOLCHAIN_FILE&quot;: &quot;$env&#123;VCPKG_ROOT&#125;/scripts/buildsystems/vcpkg.cmake&quot;</code>。</p>
-<p>更多 vcpkg 用法，请参考 <a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/vcpkg/">Microsoft Learn 网站</a>，本文不做赘述。</p>
-<h2 id="关于-Google-Test"><a href="#关于-Google-Test" class="headerlink" title="关于 Google Test"></a>关于 Google Test</h2><p>Google Test 是谷歌开发的 C++ 单元测试框架，现已有很多成熟教程。本文也不再赘述 gtest 的使用。</p>
-<h2 id="假定的项目结构"><a href="#假定的项目结构" class="headerlink" title="假定的项目结构"></a>假定的项目结构</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">\home\Documents\Projects\Cpp\HelloGtest</span><br><span class="line">├── build</span><br><span class="line">├── src</span><br><span class="line">│   ├──CMakeLists.txt</span><br><span class="line">│   ├──*.cpp</span><br><span class="line">│   ├──*.h</span><br><span class="line">├── <span class="built_in">test</span></span><br><span class="line">│   ├──CMakeLists.txt</span><br><span class="line">│   ├──TestAll.cpp</span><br><span class="line">├── main.cpp</span><br><span class="line">├──CMakeLists.txt</span><br></pre></td></tr></table></figure>
-
-<p><code>src</code> 存放主要的 C++ 代码，由 <code>src\CMakeLists.txt</code> 编译为静态库。</p>
-<p><code>test</code> 存放编写的测试代码，由 <code>test\CMakeLists.txt</code> 编译为可执行文件。</p>
-<p>根目录中有 <code>main.cpp</code> 作为程序入口，并由 <code>CMakeLists.txt</code> 与静态库相链接。</p>
-<h2 id="各个-CMakeLists-txt-写法"><a href="#各个-CMakeLists-txt-写法" class="headerlink" title="各个 CMakeLists.txt 写法"></a>各个 <code>CMakeLists.txt</code> 写法</h2><p>src\CMakeLists.txt</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置源文件目录</span></span><br><span class="line">file(GLOB_RECURSE SOURCES <span class="string">&quot;<span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/*.cpp&quot;</span>)</span><br><span class="line">file(GLOB_RECURSE HEADERS <span class="string">&quot;<span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/*.h&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将文件打包为库</span></span><br><span class="line">add_library(NumericalRecipesLibs STATIC <span class="variable">$&#123;SOURCES&#125;</span> <span class="variable">$&#123;HEADERS&#125;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>test\CMakeLists.txt</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 引入 Google Test</span></span><br><span class="line">find_package(GTest CONFIG REQUIRED)</span><br><span class="line"><span class="comment"># 创建一个单一的可执行文件，将所有测试源文件包含进去</span></span><br><span class="line"><span class="built_in">set</span>(TEST_SOURCES TestAll.cpp)</span><br><span class="line">add_executable(AllTests <span class="variable">$&#123;TEST_SOURCES&#125;</span>)</span><br><span class="line"><span class="comment"># 设置包含路径</span></span><br><span class="line">target_include_directories(AllTests PRIVATE <span class="variable">$&#123;CMAKE_SOURCE_DIR&#125;</span>/src)</span><br><span class="line"><span class="comment"># 链接 GTest 和其他必要的库</span></span><br><span class="line">target_link_libraries(AllTests PRIVATE GTest::gtest_main NumericalRecipesLibs)</span><br><span class="line"><span class="comment"># 启用测试</span></span><br><span class="line">enable_testing()</span><br><span class="line"><span class="comment"># 将单一的可执行文件作为一个测试添加</span></span><br><span class="line">add_test(NAME AllTests COMMAND AllTests)</span><br></pre></td></tr></table></figure>
-
-<p>\CMakeLists.txt</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.20)</span><br><span class="line"><span class="built_in">set</span>(CMAKE_TOOLCHAIN_FILE <span class="string">&quot;C:\\Programming\\Cpp\\vcpkg\\scripts\\buildsystems\\vcpkg.cmake&quot;</span>)</span><br><span class="line"><span class="comment"># 设置项目名称和语言</span></span><br><span class="line">project(NumericalRecipes LANGUAGES CXX)</span><br><span class="line"><span class="comment"># 设置C++标准为C++20</span></span><br><span class="line"><span class="built_in">set</span>(CMAKE_CXX_STANDARD 20)</span><br><span class="line"><span class="built_in">set</span>(CMAKE_CXX_STANDARD_REQUIRED ON)</span><br><span class="line"><span class="comment"># 添加子目录</span></span><br><span class="line">add_subdirectory(src)</span><br><span class="line">add_subdirectory(<span class="built_in">test</span>)</span><br><span class="line"><span class="comment"># 添加main.cpp可执行目标</span></span><br><span class="line">add_executable(NumericalRecipes main.cpp)</span><br><span class="line"><span class="comment"># 链接静态库和其他依赖</span></span><br><span class="line"><span class="comment"># 链接NumericalRecipes静态库到MainExecutable</span></span><br><span class="line"><span class="comment"># 确保在 src/CMakeLists.txt 中创建的库名称是正确的</span></span><br><span class="line"><span class="comment"># 使用target_link_libraries进行链接</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 链接src中的静态库NumericalRecipes到主可执行文件</span></span><br><span class="line">target_link_libraries(NumericalRecipes PRIVATE NumericalRecipesLibs)</span><br></pre></td></tr></table></figure>
-
-<h2 id="运行测试"><a href="#运行测试" class="headerlink" title="运行测试"></a>运行测试</h2><p>这样，可以直接在 Clion 中运行对应的 <code>TEST()</code> 了。</p>
-<p>如果需要使用命令行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">cmake --build . --config Debug <span class="comment"># 或 Release，需要与后面的 ctest -C 对应</span></span><br><span class="line">ctest ctest --verbose -C Debug <span class="comment"># 使用 --verbose 查看详情</span></span><br></pre></td></tr></table></figure>
-
+          <p>使用 vcpkg 引入 Google Test 框架以及对应 CMake 配置写法</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/11/17/vcpkg-gtest/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -959,7 +945,7 @@
 
   <div class="copyright">
     &copy; 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
