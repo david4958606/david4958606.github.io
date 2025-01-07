@@ -232,9 +232,9 @@
     <div class="post-body" itemprop="articleBody"><h2 id="1-Bit-全加器"><a href="#1-Bit-全加器" class="headerlink" title="1 Bit 全加器"></a>1 Bit 全加器</h2><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> add1 ( <span class="keyword">input</span> a, <span class="keyword">input</span> b, <span class="keyword">input</span> cin,   <span class="keyword">output</span> sum, <span class="keyword">output</span> cout );</span><br><span class="line">    <span class="keyword">assign</span> sum = a ^ b ^ cin;</span><br><span class="line">    <span class="keyword">assign</span> cout = (a &amp; b) | (cin &amp; (a ^ b));</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="几种加法器"><a href="#几种加法器" class="headerlink" title="几种加法器"></a>几种加法器</h2><p>在使用全加器构建更高位的加法器时，根据运算时间和占用资源的不同，有几种加法器：行波进位加法器、选择进位加法器和超前进位加法器。</p>
-<p><strong>行波进位加法器</strong>需要等待低位的加法器先完成运算并产生进位值后，高位的加法器才可以开始运算，这样使用的全加器个数等于加法器位数，但是时间复杂度高，为*O(n)*。</p>
-<p><strong>选择进位加法器</strong>通过并行计算两种进位情况下的结果并选择，时间复杂度适中，为*O(sqrt n)*，但是使用的全加器个数多。</p>
-<p><strong>超前进位加法器</strong>通过提前计算各位的进位信号来加速加法运算，时间复杂度最低，为*O(log n)*，使用的全加器个数与行波进位加法器一致，但需要额外的进位计算电路。</p>
+<p><strong>行波进位加法器</strong>需要等待低位的加法器先完成运算并产生进位值后，高位的加法器才可以开始运算，这样使用的全加器个数等于加法器位数，但是时间复杂度高，为<em>O(n)</em>。</p>
+<p><strong>选择进位加法器</strong>通过并行计算两种进位情况下的结果并选择，时间复杂度适中，为<em>O(sqrt n)</em>，但是使用的全加器个数多。</p>
+<p><strong>超前进位加法器</strong>通过提前计算各位的进位信号来加速加法运算，时间复杂度最低，为<em>O(log n)</em>，使用的全加器个数与行波进位加法器一致，但需要额外的进位计算电路。</p>
 <h2 id="减法"><a href="#减法" class="headerlink" title="减法"></a>减法</h2><h3 id="原码与补码"><a href="#原码与补码" class="headerlink" title="原码与补码"></a>原码与补码</h3><p>在计算机中，有符号数通常有三种表现形式：原码、反码与补码，符号的判断则用最高位的 0 和 1 表示，0 为正数，1 为负数。</p>
 <p>正数的原码、反码与补码相同；负数的反码是除符号位以外的位按位取反（与 1 异或），补码则是在反码的基础上加 1，比如 -15：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">原码: 1000_1111</span><br><span class="line">反码: 1111_0000</span><br><span class="line">补码: 1111_0001</span><br></pre></td></tr></table></figure>
