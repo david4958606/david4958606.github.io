@@ -6,7 +6,7 @@
   <link href="https://blog.davidwang.org/atom.xml" rel="self"/>
   
   <link href="https://blog.davidwang.org/"/>
-  <updated>2024-11-17T08:29:44.000Z</updated>
+  <updated>2025-02-03T14:44:02.000Z</updated>
   <id>https://blog.davidwang.org/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何在三大编译器中使用 STD 模块</title>
+    <link href="https://blog.davidwang.org/2025/02/03/cpp23-std-module/"/>
+    <id>https://blog.davidwang.org/2025/02/03/cpp23-std-module/</id>
+    <published>2025-02-03T14:44:02.000Z</published>
+    <updated>2025-02-03T14:44:02.000Z</updated>
+    
+    
+    <summary type="html">C++23 标准中引入了 Standard Library Modules，如何在三大编译器中使用 STD 模块呢？</summary>
+    
+    
+    
+    
+    <category term="C++" scheme="https://blog.davidwang.org/tags/c/"/>
+    
+    <category term="C++23" scheme="https://blog.davidwang.org/tags/c-23/"/>
+    
+    <category term="MSVC" scheme="https://blog.davidwang.org/tags/msvc/"/>
+    
+    <category term="GCC" scheme="https://blog.davidwang.org/tags/gcc/"/>
+    
+    <category term="Clang" scheme="https://blog.davidwang.org/tags/clang/"/>
+    
+  </entry>
   
   <entry>
     <title>使用 Vcpkg 引入 Google Test 框架以及对应 CMake 配置写法</title>
