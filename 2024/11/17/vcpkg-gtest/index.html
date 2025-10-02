@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.0.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple_touch_icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
@@ -229,7 +229,7 @@
     
     <div class="post-body" itemprop="articleBody"><h2 id="关于-vcpkg"><a href="#关于-vcpkg" class="headerlink" title="关于 vcpkg"></a>关于 vcpkg</h2><p>vcpkg 是微软官方推出的 C&#x2F;C++ 依赖管理系统，原生支持多平台，可以与 CMake 或 MSBuild 集成。</p>
 <p>vcpkg 支持全局安装以及分项目配置的清单模式。微软官方推荐后者。</p>
-<p>与 CMake 集成时，仅需为 CMake 指定环境变量 <code>&quot;CMAKE_TOOLCHAIN_FILE&quot;: &quot;$env&#123;VCPKG_ROOT&#125;/scripts/buildsystems/vcpkg.cmake&quot;</code>。</p>
+<p>与 CMake 集成时，仅需为 CMake 指定环境变量 <code>&quot;CMAKE_TOOLCHAIN_FILE&quot;: &quot;$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake&quot;</code>。</p>
 <p>更多 vcpkg 用法，请参考 <a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/vcpkg/">Microsoft Learn 网站</a>，本文不做赘述。</p>
 <h2 id="关于-Google-Test"><a href="#关于-Google-Test" class="headerlink" title="关于 Google Test"></a>关于 Google Test</h2><p>Google Test 是谷歌开发的 C++ 单元测试框架，现已有很多成熟教程。本文也不再赘述 gtest 的使用。</p>
 <h2 id="假定的项目结构"><a href="#假定的项目结构" class="headerlink" title="假定的项目结构"></a>假定的项目结构</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">\home\Documents\Projects\Cpp\HelloGtest</span><br><span class="line">├── build</span><br><span class="line">├── src</span><br><span class="line">│   ├──CMakeLists.txt</span><br><span class="line">│   ├──*.cpp</span><br><span class="line">│   ├──*.h</span><br><span class="line">├── <span class="built_in">test</span></span><br><span class="line">│   ├──CMakeLists.txt</span><br><span class="line">│   ├──TestAll.cpp</span><br><span class="line">├── main.cpp</span><br><span class="line">├──CMakeLists.txt</span><br></pre></td></tr></table></figure>
